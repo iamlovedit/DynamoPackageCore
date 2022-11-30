@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.33027.314
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoPackageService", "DynamoPackageService\DynamoPackageService.csproj", "{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {175C9FA1-3892-4993-8A0A-15E57D319F84}
+	EndGlobalSection
+EndGlobal
