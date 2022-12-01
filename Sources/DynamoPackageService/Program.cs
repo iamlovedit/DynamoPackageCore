@@ -1,3 +1,7 @@
+using DynamoPackageService.Extensions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
 namespace DynamoPackageService
 {
     public class Program
@@ -5,26 +9,43 @@ namespace DynamoPackageService
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            builder.Services.AddControllers();
-
-            builder.Services.AddEndpointsApiExplorer();
-
-            builder.Services.AddSwaggerGen();
-
-
-
-
+            var services = builder.Services;
+            var configuration = builder.Configuration;
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
+                options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
+            });
+            
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddSeq();
+            });
+            
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
+            services.AddSqlSugarSetup(configuration);
+            services.AddDatabaseSeed();
+            services.AddHttpClient();
+            services.AddCrosSetup();
+            services.AddAutoMapper(typeof(Program));
+            services.AddServicesSetup();
+            services.AddRedisSetup(configuration);
+            
             var app = builder.Build();
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
+            app.UseCrosService();
+            
             app.UseAuthorization();
 
-
+            
             app.MapControllers();
 
             app.Run();

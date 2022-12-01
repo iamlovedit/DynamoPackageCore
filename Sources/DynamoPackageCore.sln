@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.33027.314
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoPackageService", "DynamoPackageService\DynamoPackageService.csproj", "{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoPackageTest", "DynamoPackageTest\DynamoPackageTest.csproj", "{D97C9D21-46E4-4631-916B-044AF7E35840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBDDAAE9-039D-44B6-9BBE-8A7A446781E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D97C9D21-46E4-4631-916B-044AF7E35840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97C9D21-46E4-4631-916B-044AF7E35840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97C9D21-46E4-4631-916B-044AF7E35840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97C9D21-46E4-4631-916B-044AF7E35840}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
