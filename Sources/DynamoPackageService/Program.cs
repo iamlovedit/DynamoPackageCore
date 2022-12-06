@@ -32,7 +32,10 @@ namespace DynamoPackageService
             services.AddCrosSetup();
             services.AddAutoMapper(typeof(Program));
             services.AddServicesSetup();
+            services.AddQuartzSetup();
             services.AddRedisSetup(configuration);
+            services.AddSingleton<IHttpClientFactory>();
+            
             
             var app = builder.Build();
             if (app.Environment.IsDevelopment())
