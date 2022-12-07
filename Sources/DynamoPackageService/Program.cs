@@ -11,6 +11,7 @@ namespace DynamoPackageService
             var builder = WebApplication.CreateBuilder(args);
             var services = builder.Services;
             var configuration = builder.Configuration;
+
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -20,7 +21,6 @@ namespace DynamoPackageService
             });
 
             services.AddLogging(loggingBuilder => { loggingBuilder.AddSeq(); });
-
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddSqlSugarSetup(configuration);
@@ -29,12 +29,13 @@ namespace DynamoPackageService
             services.AddCrosSetup();
             services.AddAutoMapper(typeof(Program));
             services.AddServicesSetup();
-            services.AddQuartzSetup();
+            services.AddQuartzSetup(configuration);
             services.AddRedisSetup(configuration);
             services.AddHttpClient();
-            
+
 
             var app = builder.Build();
+            app.Logger.LogInformation("Adding Routes");
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -48,6 +49,7 @@ namespace DynamoPackageService
 
             app.MapControllers();
 
+            app.Logger.LogInformation("Starting the app");
             app.Run();
         }
     }
