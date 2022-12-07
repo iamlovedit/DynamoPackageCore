@@ -18,12 +18,9 @@ namespace DynamoPackageService
                 options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
                 options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
             });
-            
-            services.AddLogging(loggingBuilder =>
-            {
-                loggingBuilder.AddSeq();
-            });
-            
+
+            services.AddLogging(loggingBuilder => { loggingBuilder.AddSeq(); });
+
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddSqlSugarSetup(configuration);
@@ -34,21 +31,21 @@ namespace DynamoPackageService
             services.AddServicesSetup();
             services.AddQuartzSetup();
             services.AddRedisSetup(configuration);
-            services.AddSingleton<IHttpClientFactory>();
+            services.AddHttpClient();
             
-            
+
             var app = builder.Build();
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            
+
             app.UseCrosService();
-            
+
             app.UseAuthorization();
 
-            
+
             app.MapControllers();
 
             app.Run();
